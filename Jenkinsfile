@@ -12,5 +12,13 @@ pipeline {
         sh 'echo "Hello"'
       }
     }
+    stage('Test') {
+      environment {
+        CI = 'true'
+      }
+      steps {
+        sh './jenkins/scripts/test.sh'
+      }
+    }
   }
 }
